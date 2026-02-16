@@ -1,13 +1,23 @@
+import { invoke } from "@tauri-apps/api/core";
 import "./App.css";
 import Dashboard from "./pages/Dashboard";
+import { useState } from "react";
+import { cn } from "./lib/utils";
 
 function App() {
+  const [greetMsg, setGreetMsg] = useState("")
+  const [name, setName] = useState("")
+
+  async function greet() {
+    // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
+    setGreetMsg(await invoke("greet", { name }))
+  }
 
   return (
-    <main className="bg-background-light dark:bg-background-dark text-[#181611] dark:text-white">
+    <>
       <Dashboard />
-    </main>
-  );
+    </>
+  )
 }
 
 export default App;
