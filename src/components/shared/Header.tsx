@@ -1,5 +1,4 @@
-import { BellIcon, BellOffIcon } from 'lucide-react'
-import React from 'react'
+import { BellIcon } from 'lucide-react'
 
 function Header() {
     return (
@@ -20,7 +19,8 @@ function Header() {
                     <div className="size-11 rounded-full bg-cover bg-center ring-2 ring-primary/20" data-alt="Profile picture of cafe manager Alex" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAXs3pqw-ysrR3lTEWhL4ah60ZabHz0prenab-qgScmaji9O-DKMbv5KGkAa6DuboUoOY543uNc9XO8uB6m3GPMfcFbr4leBXdZKSCskz6948jNuTRJyMcoAFkMcoxvMpf5g4ym0vmnSn2CNDDD7pNB8V1uUPJjwOmlzGJpQ4Cv24gFu-Rw4hExedi_Guv5x2Ad3uA-bOnrEWGRWtLz9dWWqiZdLQVluq3rtfxZ0JUqa8yTcGrIO-aW9yV0psgToX2cCObFfCT8R5M')" }}></div>
                 </div>
             </div>
-        </header>)
+        </header>
+    );
 }
 
 export default Header
