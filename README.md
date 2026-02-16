@@ -1,7 +1,40 @@
-# Tauri + React + Typescript
+# Inventory App
 
-This template should help get you started developing with Tauri, React and Typescript in Vite.
+A Tauri + React + TypeScript desktop application for inventory management.
 
-## Recommended IDE Setup
+## Getting Started
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+Install dependencies:
+
+```sh
+npm install
+```
+
+Create sqlite database:
+```
+>> cd persistence
+>> sqlite3 <DATABASE> 
+>> .save <FILENAME>
+```
+
+Run migrations from `./persistence/migrations`:
+
+Run development server:
+
+```sh
+npm run tauri dev
+```
+
+Build for production:
+
+```sh
+npm run tauri build
+```
+
+## Tech Stack
+
+- **Frontend**: React, TypeScript, Vite
+- **Desktop**: Tauri
+- **Backend**: Rust
+- **Database**: SQLite
+
