@@ -1,7 +1,9 @@
 import { invoke } from "@tauri-apps/api/core";
 import "./App.css";
-import Dashboard from "./pages/Dashboard";
 import { useState } from "react";
+import Sidebar from "./components/shared/Sidebar";
+import { Outlet } from "react-router";
+import Header from "./components/shared/Header";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("")
@@ -13,9 +15,14 @@ function App() {
   }
 
   return (
-    <>
-      <Dashboard />
-    </>
+    <div className="flex h-screen overflow-hidden">
+      <Sidebar />
+      <main className="flex-1 overflow-y-auto bg-background dark:bg-background-dark">
+        <Header />
+        <Outlet />
+      </main>
+    </div>
+
   )
 }
 
