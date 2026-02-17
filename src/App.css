@@ -27,6 +27,7 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
+  --color-success: var(--success);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -61,7 +62,8 @@
   --muted-foreground: #8a7c60;
   --accent: #b4a18d;
   --accent-foreground: #4a4238;
-  --destructive: #f4e4e1;
+  --destructive: #ff7860;
+  --success: #96ff79;
   --border: #e8edeb;
   --input: #F2EBE3;
   --ring: #8d775f;
@@ -95,7 +97,8 @@
   --muted-foreground: #a89878;
   --accent: #b4a18d;
   --accent-foreground: #FCFAF8;
-  --destructive: #f4e4e1;
+  --destructive: #ff4423;
+  --success: #7afd56;
   --border: #3a3530;
   --input: #2a2622;
   --ring: #b4a18d;
@@ -119,6 +122,7 @@
     @apply border-border outline-ring/50;
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
     @apply bg-background text-foreground;

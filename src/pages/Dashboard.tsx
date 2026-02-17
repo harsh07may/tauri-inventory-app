@@ -5,8 +5,10 @@ import { AlertTriangleIcon, CalendarCheckIcon, CreditCardIcon, PackageIcon } fro
 import { useEffect, useState } from "react";
 
 import { getProducts, getUsers, getLowStock, getTotalValue } from "@/lib/db";
-import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import RecentActivityCard from "@/components/dashboard/RecentActivityCard";
+import { Badge } from "@/components/ui/badge";
 
 
 type DashboardStats = {
@@ -79,16 +81,7 @@ function Dashboard() {
             <section className="grid grid-cols-4 gap-4 px-5 py-2">
 
                 {/* Large Left Card */}
-                <Card className="col-span-3 row-span-3 bg-background">
-                    <CardHeader>
-                        <CardTitle>Recent Activity</CardTitle>
-                        <CardDescription>Audit trail for the last 24 hours</CardDescription>
-                        <CardAction>View All</CardAction>
-                    </CardHeader>
-                    <CardContent>
-                        <p>Card Content</p>
-                    </CardContent>
-                </Card>
+                <RecentActivityCard />
 
                 {/* Inventory Health Card */}
                 <Card className="relative col-span-1 border-0 shadow-xl rounded-3xl bg-linear-to-br from-amber-400 to-orange-500 text-white">
@@ -114,11 +107,17 @@ function Dashboard() {
                 {/* Third Card */}
                 <Card className="col-span-1">
                     <CardHeader>
-                        <CardTitle>Card Title</CardTitle>
-                        <CardDescription>Card Description</CardDescription>
+                        <CardTitle>❗Critical Stock</CardTitle>
                     </CardHeader>
-                    <CardContent>
-                        <p>Card Content</p>
+                    <CardContent className="space-y-1">
+                        <div className=" rounded-full bg-background shadow p-2">
+                            <p className="text-xs font-medium">Product 1</p>
+                            <p className="text-xs font-medium text-red-400"> 1 units left</p>
+                        </div>
+                        <div className="rounded-full bg-background shadow p-2">
+                            <p className="text-xs font-medium">Product 2</p>
+                            <p className="text-xs font-medium text-red-400">3 units left</p>
+                        </div>
                     </CardContent>
                 </Card>
             </section>

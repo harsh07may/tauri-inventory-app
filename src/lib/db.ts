@@ -1,5 +1,5 @@
 import Database from "@tauri-apps/plugin-sql"
-import { Product, User } from "./models"
+import { Product, Transaction, User } from "./models"
 
 let db: Database | null = null
 
@@ -63,6 +63,29 @@ export async function getUsers(): Promise<User[]> {
         `
       SELECT id, username, role
       FROM users
+    `
+    )
+}
+
+// TRANSACTIONS
+export async function getTransactions() {
+    const db = await getDb()
+
+    return db.select<Promise<Transaction[]>>(
+        `
+      SELECT 
+        it.id,
+        it.product_id,
+        it.transaction_type,
+        it.quantity,
+        it.transaction_date,
+        it.user_id,
+        p.name AS product_name,
+        u.username AS username
+      FROM inventory_transactions it
+      LEFT JOIN products p ON p.id = it.product_id
+      LEFT JOIN users u ON u.id = it.user_id
+      ORDER BY it.transaction_date DESC
     `
     )
 }
