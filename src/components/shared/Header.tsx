@@ -2,8 +2,8 @@ import { BellIcon } from 'lucide-react'
 
 function Header() {
     return (
-        <header className="flex items-center justify-between px-10 py-6 sticky top-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md z-10">
-            <div className="flex items-center gap-6 border">
+        <header className="flex shadow items-center justify-between px-10 py-6 sticky top-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md z-10">
+            <div className="flex items-center gap-6">
                 <h2 className="text-2xl font-bold tracking-tight">Dashboard</h2>
             </div>
 
