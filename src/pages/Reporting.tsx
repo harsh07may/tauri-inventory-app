@@ -1,8 +1,10 @@
-import React from 'react'
-
 function Reporting() {
     return (
-        <div>Reporting</div>
+        <>
+        <section className="p-5">
+            
+        </section>
+        </>
     )
 }
 

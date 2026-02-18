@@ -10,7 +10,8 @@ export type Product = {
     description: string | null
     price: number
     quantity: number
-    supplier_id: number | null
+    supplier: string | null
+
 }
 
 export type Transaction = {

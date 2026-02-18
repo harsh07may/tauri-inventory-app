@@ -1,14 +1,11 @@
 import StatisticsCard from "@/components/dashboard/StatisticsCard"
-import Header from "@/components/shared/Header"
-import Sidebar from "@/components/shared/Sidebar"
 import { AlertTriangleIcon, CalendarCheckIcon, CreditCardIcon, PackageIcon } from "lucide-react"
 import { useEffect, useState } from "react";
 
-import { getProducts, getUsers, getLowStock, getTotalValue } from "@/lib/db";
-import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { getProducts, getLowStock, getTotalValue } from "@/lib/db";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import RecentActivityCard from "@/components/dashboard/RecentActivityCard";
-import { Badge } from "@/components/ui/badge";
 
 
 type DashboardStats = {
@@ -44,8 +41,8 @@ function Dashboard() {
     }, [])
 
     return (
-        <>
-            <section className="grid grid-cols-1 gap-6 p-5 sm:grid-cols-4">
+        <div className="bg-card h-full p-5 space-y-5">
+            <section className="grid grid-cols-1 gap-6 sm:grid-cols-4">
                 <StatisticsCard
                     icon={<PackageIcon />}
                     title="Total Products"
@@ -78,7 +75,7 @@ function Dashboard() {
                 />
             </section>
 
-            <section className="grid grid-cols-4 gap-4 px-5 py-2">
+            <section className="grid grid-cols-4 gap-4">
 
                 {/* Large Left Card */}
                 <RecentActivityCard />
@@ -105,11 +102,11 @@ function Dashboard() {
                 </Card>
 
                 {/* Third Card */}
-                <Card className="col-span-1">
+                <Card className="col-span-1 bg-linear-to-br from-slate-300 to-slate-100">
                     <CardHeader>
                         <CardTitle>❗Critical Stock</CardTitle>
                     </CardHeader>
-                    <CardContent className="space-y-1">
+                    <CardContent className="space-y-1 ">
                         <div className=" rounded-full bg-background shadow p-2">
                             <p className="text-xs font-medium">Product 1</p>
                             <p className="text-xs font-medium text-red-400"> 1 units left</p>
@@ -121,7 +118,7 @@ function Dashboard() {
                     </CardContent>
                 </Card>
             </section>
-        </>
+        </div>
     )
 }
 

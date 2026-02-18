@@ -1,10 +1,14 @@
 import { BellIcon } from 'lucide-react'
+import { useLocation } from 'react-router';
+import { navItems } from '@/Routing';
 
 function Header() {
+    const location = useLocation();
+    const currentNav = navItems.find(item => item.path === location.pathname);
     return (
         <header className="flex shadow items-center justify-between px-10 py-6 sticky top-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md z-10">
             <div className="flex items-center gap-6">
-                <h2 className="text-2xl font-bold tracking-tight">Dashboard</h2>
+                <h2 className="text-2xl font-bold tracking-tight">{currentNav ? currentNav.label : ''}</h2>
             </div>
 
             <div className="flex items-center gap-4">

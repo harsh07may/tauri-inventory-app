@@ -1,24 +1,15 @@
 import { isValidElement, type ReactNode } from 'react'
 import { cn } from '@/lib/utils'
+import { COLORMAP } from '@/constants'
 
-/** Utility Color Map to add colors dynamically.
- * Tailwind scans your source files as plain text, it has no way of understanding string concatenation or interpolation.
- * @see https://tailwindcss.com/docs/detecting-classes-in-source-files#how-classes-are-detected */
-const colorMap = {
-    blue: "text-blue-400",
-    gray: "text-gray-400",
-    green: "text-green-400",
-    yellow: "text-yellow-400",
-    red: "text-red-400",
-    purple: "text-purple-400",
-} as const
+
 
 type StatisticsCardProps = {
     icon: ReactNode
     value: string
     title: string
     className?: string
-    color?: keyof typeof colorMap
+    color?: keyof typeof COLORMAP
 }
 
 
@@ -41,7 +32,7 @@ const StatisticsCard = ({
             <div
                 className={cn(
                     'flex size-12 shrink-0 items-center justify-center rounded-2xl',
-                    colorMap[color]
+                    COLORMAP[color]
                 )}
             >
                 {icon}
@@ -52,7 +43,7 @@ const StatisticsCard = ({
                 <span
                     className={cn(
                         'text-lg font-semibold uppercase tracking-wide',
-                        colorMap[color]
+                        COLORMAP[color]
                     )}
                 >
                     {title}

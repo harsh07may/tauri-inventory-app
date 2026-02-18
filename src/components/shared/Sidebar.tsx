@@ -1,24 +1,18 @@
-import { Coffee, Home, Box, Truck, Monitor, Settings, PlusCircle } from 'lucide-react';
+import { navItems } from '@/Routing';
+import { Coffee, PlusCircle } from 'lucide-react';
 import { Link, useLocation } from 'react-router';
+
 
 function Sidebar() {
     const location = useLocation();
 
-    const navItems = [
-        { path: '/', label: 'Home', icon: Home },
-        { path: '/inventory', label: 'Inventory', icon: Box },
-        { path: '/suppliers', label: 'Suppliers', icon: Truck },
-        { path: '/reports', label: 'Reports', icon: Monitor },
-        { path: '/settings', label: 'Settings', icon: Settings },
-    ];
-
     const isActive = (path: string) => location.pathname === path;
 
     return (
-        <aside className="w-72 bg-sidebar dark:bg-[#2d251a] h-full flex flex-col p-2 border-r border-primary/10">
-            <Link to="/" className="flex items-center gap-3 mb-10 px-2">
+        <aside className="w-72 bg-background dark:bg-[#2d251a] h-full flex flex-col p-2 border-r border-primary/10">
+            <Link to="/" className="flex items-center gap-3 mb-10 px-2 py-5 group">
                 <div className="size-10 bg-primary rounded-full flex items-center justify-center text-white shadow-lg shadow-primary/20">
-                    <Coffee className="w-5 h-5" />
+                    <Coffee className="w-5 h-5 group-hover:rotate-6" />
                 </div>
                 <div>
                     <h1 className="text-[#181611] dark:text-white text-lg font-bold leading-none">Cafe Central</h1>
